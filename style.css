@@ -557,6 +557,9 @@ input:checked + .slider:before {
 .placeholder-red { background: linear-gradient(135deg, #b71c1c, #ef5350); }
 .placeholder-green { background: linear-gradient(135deg, #1b5e20, #66bb6a); }
 .placeholder-blue { background: linear-gradient(135deg, #0d47a1, #42a5f5); }
+.placeholder-purple { background: linear-gradient(135deg, #6a1b9a, #ab47bc); }
+.placeholder-orange { background: linear-gradient(135deg, #e65100, #ff6f00); }
+.placeholder-teal { background: linear-gradient(135deg, #00695c, #00897b); }
 
 .project-img img {
     width: 100%;
