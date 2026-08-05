@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 
 export default function ResumeModal({ open, onClose }) {
   const containerRef = useRef(null)
-  const loadedRef = useRef(false)
+  const pdfRef = useRef(null) // cached parsed document — pages re-render on every open
+  const seqRef = useRef(0) // render generation; bumping it cancels in-flight loops
+  const prevRunRef = useRef(Promise.resolve()) // serializes loops so they never share the container
   const [status, setStatus] = useState('idle') // idle | loading | ready | error
 
   useEffect(() => {
@@ -13,38 +15,47 @@ export default function ResumeModal({ open, onClose }) {
   }, [open, onClose])
 
   useEffect(() => {
-    if (!open || loadedRef.current || !window.pdfjsLib) return
-    let cancelled = false
+    if (!open) return
+    const mySeq = ++seqRef.current
+    const stale = () => seqRef.current !== mySeq
     const render = async () => {
+      // Wait out any previous loop so two runs never interleave on the container.
+      await prevRunRef.current.catch(() => {})
+      if (stale()) return
       setStatus('loading')
       try {
+        if (!window.pdfjsLib) throw new Error('pdf.js not available')
         window.pdfjsLib.GlobalWorkerOptions.workerSrc =
           'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'
-        const pdf = await window.pdfjsLib.getDocument('/resume.pdf').promise
-        if (cancelled) return
+        if (!pdfRef.current) {
+          pdfRef.current = await window.pdfjsLib.getDocument('/resume.pdf').promise
+        }
+        const pdf = pdfRef.current
+        if (stale()) return
         const container = containerRef.current
+        if (!container) return
         container.innerHTML = ''
         for (let i = 1; i <= pdf.numPages; i++) {
           const page = await pdf.getPage(i)
-          if (cancelled) return
+          if (stale()) return
           const canvas = document.createElement('canvas')
           const viewport = page.getViewport({ scale: 2 })
           canvas.width = viewport.width
           canvas.height = viewport.height
           await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise
+          if (stale()) return
           const wrap = document.createElement('div')
           wrap.className = 'pdf-page mb-4 overflow-hidden rounded-lg shadow-lg'
           wrap.appendChild(canvas)
           container.appendChild(wrap)
         }
-        loadedRef.current = true
         setStatus('ready')
       } catch {
-        if (!cancelled) setStatus('error')
+        if (!stale()) { pdfRef.current = null; setStatus('error') }
       }
     }
-    render()
-    return () => { cancelled = true }
+    prevRunRef.current = render()
+    return () => { seqRef.current++ } // invalidate this run on close/unmount
   }, [open])
 
   if (!open) return null

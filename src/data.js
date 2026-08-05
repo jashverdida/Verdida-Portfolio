@@ -210,6 +210,7 @@ export const FEATURED_MILESTONES = [
     org: 'N-Compass TV',
     year: 'Jan – May 2026',
     desc: 'Quality Assurance and frontend internship: functional testing across platform features, system validation for software reliability, and detailed defect tracking for broadcast platform software.',
+    image: '/images/internship.jpg',
     tags: ['Quality Assurance', 'Frontend', 'System Validation'],
   },
   {
@@ -218,6 +219,7 @@ export const FEATURED_MILESTONES = [
     org: 'Cebu AI Summit',
     year: 'Jun 2026',
     desc: "Champion at Lambo 2026, Cebu's AI business summit exploring industry trends and innovation ecosystems — taking the top spot among competing teams.",
+    image: '/images/lambo-champs3.jpg',
     tags: ['Champion', 'AI Business Summit', 'Cebu'],
   },
   {
@@ -226,6 +228,7 @@ export const FEATURED_MILESTONES = [
     org: 'PSITE Central Visayas',
     year: '2026',
     desc: '1st place for designing and defending a scalable technical solution to real-world problems.',
+    image: '/images/PSITE1.jpg',
     tags: ['1st Place', 'Innovation', 'Central Visayas'],
   },
   {
@@ -234,6 +237,7 @@ export const FEATURED_MILESTONES = [
     org: 'University of Cebu — Inter-school',
     year: '2026',
     desc: 'Championship for distilling an intricate technical project into a persuasive, client-facing presentation.',
+    image: '/images/ICT-Con1.jpg',
     tags: ['1st Place', 'Lightning Pitch', 'Inter-school'],
   },
   {
@@ -242,6 +246,7 @@ export const FEATURED_MILESTONES = [
     org: 'Southeast Asia — International',
     year: 'Apr – Jul 2026',
     desc: 'Semifinalist in the Southeast Asia-wide AI hackathon — competing against teams from across the whole ASEAN region in an intensive AI innovation and training program.',
+    image: '/images/asean.jpg',
     tags: ['Semifinalist', 'Southeast Asia', 'AI'],
   },
   {
@@ -250,6 +255,7 @@ export const FEATURED_MILESTONES = [
     org: 'PSITS – Banilad Chapter',
     year: '2023 – 2025',
     desc: 'Leadership and Excellence Award for service to PSITS — financial oversight as Auditor and active community involvement as Volunteer Associate.',
+    image: '/images/psits.jpg',
     tags: ['Leadership', 'Auditor', 'Volunteer Associate'],
   },
   {
@@ -258,6 +264,7 @@ export const FEATURED_MILESTONES = [
     org: "DevKada's CodeKada — National",
     year: '2026',
     desc: 'Awarded Best Standup at a rigorous national development sprint for Agile communication skills.',
+    image: '/images/devkada.jpg',
     tags: ['Best Award', 'National Hackathon', 'Agile'],
   },
   {
@@ -266,6 +273,7 @@ export const FEATURED_MILESTONES = [
     org: 'University of Cebu — Inter-school',
     year: '2026',
     desc: '2nd place for presenting an innovative technical system architecture to a diverse academic panel.',
+    image: '/images/rescon.jpg',
     tags: ['2nd Place', 'Research', 'Inter-school'],
   },
   {
@@ -274,6 +282,7 @@ export const FEATURED_MILESTONES = [
     org: 'University of Cebu — CCS',
     year: '2026',
     desc: '2nd place for delivering a compelling and concise product pitch for Project FIRA.',
+    image: '/images/ccslightpitch.jpg',
     tags: ['2nd Place', 'Project FIRA', 'Pitch'],
   },
   {
@@ -282,6 +291,7 @@ export const FEATURED_MILESTONES = [
     org: 'University of Cebu — CCS',
     year: '2026',
     desc: '2nd place for the Project FIRA technical poster, transforming complex data systems into stakeholder-ready exhibits.',
+    image: '/images/ccsposter.jpg',
     tags: ['2nd Place', 'Project FIRA', 'Poster'],
   },
   {
@@ -290,6 +300,7 @@ export const FEATURED_MILESTONES = [
     org: 'UC – Banilad',
     year: '2026',
     desc: '2nd place demonstrating rapid quantitative reasoning and precise mental calculation under strict time constraints.',
+    image: '/images/mathquiz.jpg',
     tags: ['2nd Place', 'Quantitative Reasoning'],
   },
   {
@@ -298,6 +309,7 @@ export const FEATURED_MILESTONES = [
     org: 'Oltek — Sponsored Hackathon',
     year: '2026',
     desc: 'Placed Top 3 for architecting O.L.E.A. — Optimal Logistics Extraction Automation — a high-speed pipeline converting unstructured shipping contracts into structured Excel and JSON formats.',
+    image: '/images/oltek.jpg',
     tags: ['O.L.E.A. Project', 'C#', 'Python', 'Automation'],
   },
   {
@@ -306,6 +318,7 @@ export const FEATURED_MILESTONES = [
     org: 'University of Cebu – Banilad',
     year: '2026',
     desc: '3rd place for effectively communicating complex technical research findings to a diverse academic panel.',
+    image: '/images/ucbrescon.jpg',
     tags: ['3rd Place', 'Research', 'UC – Banilad'],
   },
   {
@@ -322,6 +335,7 @@ export const FEATURED_MILESTONES = [
     org: 'University of Cebu – Banilad',
     year: '2022 – 2026',
     desc: 'Consistently recognized on the Dean’s List for outstanding academic performance in the BS Information Technology program — combining academic discipline with hands-on technical delivery.',
+    image: '/images/deanslist.jpg',
     tags: ['Academic Excellence', 'BSIT', 'Consistency'],
   },
 ]
@@ -345,10 +359,10 @@ export const ACHIEVEMENTS = [
   { category: 'competitions', rank: 'Champion', tone: 'champion', icon: 'fa-trophy', title: 'ICT Congress Lightning Pitch', org: 'University of Cebu — Inter-school', year: '2026', desc: 'Championship for distilling an intricate technical project into a persuasive, client-facing presentation.' },
   { category: 'competitions', rank: 'Champion', tone: 'champion', icon: 'fa-city', title: "Lambo 2026: Cebu's AI Business Summit", org: 'Cebu AI Summit', year: '2026', desc: "Champion at Cebu's AI business summit exploring industry trends and innovation ecosystems — taking the top spot among competing teams." },
   { category: 'competitions', rank: 'Best Award', tone: 'best', icon: 'fa-star', title: 'CodeKada Hackathon – Best Standup', org: "DevKada's CodeKada — National", year: '2026', desc: 'Awarded Best Standup at a rigorous national development sprint for Agile communication skills.' },
-  { category: 'competitions', rank: '2nd Place', tone: 'second', icon: 'fa-medal', title: 'CCS Research Congress Podium', org: 'University of Cebu — Inter-school', year: '2026', desc: '2nd place for presenting an innovative technical system architecture to a diverse academic panel.' },
+  { category: 'competitions', rank: '2nd Place', tone: 'second', icon: 'fa-medal', title: 'CCS Research Congress Podium', org: 'University of Cebu — Inter-school', year: '2026', desc: '2nd place for presenting an innovative technical system architecture to a diverse academic panel.', image: '/images/rescon.jpg' },
   { category: 'competitions', rank: '2nd Place', tone: 'second', icon: 'fa-medal', title: 'CCS Exhibit – Lightning Pitch', org: 'University of Cebu — CCS', year: '2026', desc: '2nd place for delivering a compelling and concise product pitch for Project FIRA.' },
   { category: 'competitions', rank: '2nd Place', tone: 'second', icon: 'fa-palette', title: 'CCS Exhibit – Poster Competition', org: 'University of Cebu — CCS', year: '2026', desc: '2nd place for the Project FIRA technical poster, transforming complex data systems into stakeholder-ready exhibits.' },
-  { category: 'competitions', rank: '2nd Place', tone: 'second', icon: 'fa-calculator', title: 'Intramurals Math Quiz', org: 'UC – Banilad', year: '2026', desc: '2nd place demonstrating rapid quantitative reasoning and precise mental calculation under strict time constraints.' },
+  { category: 'competitions', rank: '2nd Place', tone: 'second', icon: 'fa-calculator', title: 'Intramurals Math Quiz', org: 'UC – Banilad', year: '2026', desc: '2nd place demonstrating rapid quantitative reasoning and precise mental calculation under strict time constraints.', image: '/images/mathquiz.jpg' },
   { category: 'competitions', rank: '3rd Place', tone: 'third', icon: 'fa-award', title: 'Paper to Data Logistics Hackathon', org: 'Oltek — Sponsored', year: '2026', desc: '3rd place for architecting a high-speed logistics data extraction pipeline.' },
   { category: 'competitions', rank: '3rd Place', tone: 'third', icon: 'fa-award', title: 'UC-B Research Congress Podium', org: 'University of Cebu – Banilad', year: '2026', desc: '3rd place for effectively communicating complex technical research findings to a diverse academic panel.' },
   { category: 'competitions', rank: '3rd Place', tone: 'third', icon: 'fa-flask', title: 'Intramurals Science Quiz', org: 'UC – Banilad', year: '2023', desc: '3rd place applying scientific concepts and logical reasoning under strict time constraints.' },
@@ -359,8 +373,8 @@ export const ACHIEVEMENTS = [
   { category: 'competitions', rank: 'Participant', tone: 'participant', icon: 'fa-leaf', title: 'Climate LaunchPad', org: 'Global Green Business Competition', year: '2026', desc: 'Global green business competition pitching scalable, sustainability-focused innovations.' },
   { category: 'competitions', rank: 'Participant', tone: 'participant', icon: 'fa-code', title: 'SIKAPTala National CS Hackathon', org: 'National Competition', year: '2026', desc: 'Nationwide CS hackathon building ELIXER using rapid prototyping under strict deadlines.' },
   { category: 'leadership', rank: 'Intern', tone: 'work', icon: 'fa-laptop-code', title: 'Quality Assurance Intern', org: 'N-Compass TV', year: 'Jan – May 2026', desc: 'QA, system validation, and defect tracking for broadcast platform software.' },
-  { category: 'leadership', rank: 'Leader', tone: 'org', icon: 'fa-handshake', title: 'Auditor & Volunteer Associate', org: 'PSITS – Banilad Chapter', year: '2023 – 2025', desc: 'Financial oversight as Auditor and active community involvement as Volunteer Associate.' },
-  { category: 'workshops', icon: 'fa-robot', title: 'ASEAN AI Hackathon', org: 'Regional Program', year: 'Apr – Jul 2026', desc: 'Intensive ASEAN AI hackathon and training program.' },
+  { category: 'leadership', rank: 'Leader', tone: 'org', icon: 'fa-handshake', title: 'Auditor & Volunteer Associate', org: 'PSITS – Banilad Chapter', year: '2023 – 2025', desc: 'Financial oversight as Auditor and active community involvement as Volunteer Associate.', image: '/images/psits.jpg' },
+  { category: 'workshops', icon: 'fa-robot', title: 'ASEAN AI Hackathon', org: 'Regional Program', year: 'Apr – Jul 2026', desc: 'Intensive ASEAN AI hackathon and training program.', image: '/images/asean.jpg' },
   { category: 'workshops', icon: 'fa-city', title: "Lambo 2026: Cebu's AI Business Summit", org: 'Cebu AI Summit', year: 'Jun 2026', desc: 'AI business summit exploring industry trends and innovation ecosystems.' },
   { category: 'workshops', icon: 'fa-lightbulb', title: 'Cebu Solutionsfest 2026', org: 'Cebu Tech Community', year: 'Jun 2026', desc: 'Technology solutions festival and innovation showcase.' },
   { category: 'workshops', icon: 'fa-users', title: 'ASEAN Youth Challenge', org: 'Regional Training Program', year: 'Jan – May 2026', desc: 'Intensive regional youth development and innovation training program.' },

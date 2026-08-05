@@ -20,7 +20,6 @@ export function Hero({ onNavigate, onPreviewResume }) {
   const typed = useTypewriter(TYPING_TEXTS)
   return (
     <section id="hero" className="deck-section overflow-hidden">
-      <div className="hero-grid-bg" />
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col-reverse items-center gap-10 px-5 pt-16 md:flex-row md:justify-between md:gap-6">
         <motion.div
           initial={{ opacity: 0, x: -32 }}
@@ -111,7 +110,7 @@ function StatItem({ stat }) {
 
 export function About() {
   return (
-    <section id="about" className="deck-section bg-deep">
+    <section id="about" className="deck-section bg-deep/55">
       <div className="mx-auto w-full max-w-5xl px-5 pt-16">
         <SectionTitle title="About Me" subtitle={<i>{ABOUT_QUOTE}</i>} />
         <motion.p {...fadeUp} className="mx-auto max-w-3xl text-center text-sm leading-relaxed text-muted md:text-base">
@@ -205,7 +204,7 @@ const toneColor = {
 
 export function TechStack() {
   return (
-    <section id="skills" className="deck-section bg-deep">
+    <section id="skills" className="deck-section bg-deep/55">
       <div className="mx-auto w-full max-w-5xl px-5 pt-16">
         <SectionTitle title="My Tech Stack" subtitle="Technologies and tools I work with — slide through each category" />
         <HorizontalGallery ariaLabel="Tech stack categories">

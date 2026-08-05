@@ -52,7 +52,7 @@ const milestoneTone = {
 /* ============ FEATURED MILESTONES (horizontal slider) ============ */
 export function Achievements() {
   return (
-    <section id="achievements" className="deck-section bg-deep">
+    <section id="achievements" className="deck-section bg-deep/55">
       <div className="mx-auto w-full max-w-6xl px-5 pt-16">
         <SectionTitle title="Milestones" subtitle="Signature achievements — slide through the journey" />
         <HorizontalGallery ariaLabel="Featured milestones" autoPlay>
@@ -65,14 +65,24 @@ export function Achievements() {
                 >
                   {/* Image placeholder — swap the inner div for an <img className="h-full w-full object-cover" /> */}
                   <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${tone.gradient}`} />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                      <i className={`fas ${m.icon} text-5xl ${tone.icon}`} />
-                      <span className="rounded-full border border-white/15 px-3 py-1 text-[11px] font-medium tracking-wide text-muted">
-                        <i className="fas fa-image mr-1.5" />
-                        photo coming soon
-                      </span>
-                    </div>
+                    {m.image ? (
+                      <img
+                        src={m.image}
+                        alt={m.title}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <>
+                        <div className={`absolute inset-0 bg-gradient-to-br ${tone.gradient}`} />
+                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                          <i className={`fas ${m.icon} text-5xl ${tone.icon}`} />
+                          <span className="rounded-full border border-white/15 px-3 py-1 text-[11px] font-medium tracking-wide text-muted">
+                            <i className="fas fa-image mr-1.5" />
+                            photo coming soon
+                          </span>
+                        </div>
+                      </>
+                    )}
                     <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/30 to-transparent" />
                   </div>
 

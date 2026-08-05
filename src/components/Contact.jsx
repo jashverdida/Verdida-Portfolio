@@ -24,7 +24,7 @@ export default function Contact({ onToast }) {
     'glass w-full rounded-xl px-4 py-3 text-sm text-main placeholder:text-muted/70 outline-none transition-all duration-300 focus:border-accent/50 focus:shadow-[0_0_20px_var(--glow)]'
 
   return (
-    <section id="contact" className="deck-section bg-deep">
+    <section id="contact" className="deck-section bg-deep/55">
       <div className="mx-auto w-full max-w-5xl px-5 pt-16">
         <SectionTitle
           title="Let's Work Together"

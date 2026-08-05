@@ -41,6 +41,10 @@ export default function App() {
       <LoadingScreen />
       <CursorGlow />
 
+      {/* Ambient aurora backdrop + film grain */}
+      <div className="aurora" aria-hidden="true"><i /><i /><i /></div>
+      <div className="grain" aria-hidden="true" />
+
       {/* Scroll progress */}
       <div
         className="fixed inset-x-0 top-0 z-50 h-[3px] bg-gradient-to-r from-accent to-accent2 transition-[width] duration-150"
@@ -57,7 +61,7 @@ export default function App() {
       <SectionDots active={active} onNavigate={navigate} />
 
       {/* The vertical deck — each child section snaps to the viewport */}
-      <main ref={deckRef} onScroll={onDeckScroll} className="deck">
+      <main ref={deckRef} onScroll={onDeckScroll} className="deck relative z-10">
         <Hero onNavigate={navigate} onPreviewResume={() => setResumeOpen(true)} />
         <About />
         <Experience />
