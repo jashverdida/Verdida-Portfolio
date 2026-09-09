@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { SectionTitle } from './Chrome'
 import HorizontalGallery from './HorizontalGallery'
 import { FEATURED_MILESTONES, ACHIEVEMENTS, ACHIEVEMENT_STATS, ACHIEVEMENT_FILTERS } from '../data'
@@ -61,10 +61,10 @@ export function Achievements() {
             return (
               <div key={m.title} className="w-full px-1 md:px-14">
                 <article
-                  className={`glass glow-border mx-auto grid max-w-4xl gap-6 rounded-3xl p-6 transition-transform duration-500 hover:scale-[1.01] md:grid-cols-[1.1fr_1fr] md:items-center md:gap-8 md:p-8 ${tone.glow}`}
+                  className={`glass glow-border mx-auto grid max-w-4xl gap-6 rounded-3xl p-6 transition-transform duration-500 hover-scale-101 md-grid-cols-custom md:items-center md:gap-8 md:p-8 ${tone.glow}`}
                 >
                   {/* Image placeholder — swap the inner div for an <img className="h-full w-full object-cover" /> */}
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10">
+                  <div className="relative milestone-aspect overflow-hidden rounded-2xl border border-white/10">
                     {m.image ? (
                       <img
                         src={m.image}
@@ -73,7 +73,7 @@ export function Achievements() {
                       />
                     ) : (
                       <>
-                        <div className={`absolute inset-0 bg-gradient-to-br ${tone.gradient}`} />
+                        <div className={`absolute inset-0 ${tone.gradient}`} />
                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                           <i className={`fas ${m.icon} text-5xl ${tone.icon}`} />
                           <span className="rounded-full border border-white/15 px-3 py-1 text-[11px] font-medium tracking-wide text-muted">
@@ -83,7 +83,7 @@ export function Achievements() {
                         </div>
                       </>
                     )}
-                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/30 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 h-16 overlay-gradient-top" />
                   </div>
 
                   <div>
@@ -132,6 +132,35 @@ const chipTone = {
   green: 'text-accent3 border-accent3/40',
 }
 
+function AwardCard({ a, index }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, amount: 0.2 })
+
+  return (
+    <motion.div
+      ref={ref}
+      layout
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{ duration: 0.45, delay: index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="glass glow-border relative flex flex-col rounded-2xl p-5 transition-transform duration-300 hover:-translate-y-1"
+    >
+      {a.rank && (
+        <span className={`absolute right-4 top-4 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${rankTone[a.tone]}`}>
+          {a.rank}
+        </span>
+      )}
+      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent/12 text-accent">
+        <i className={`fas ${a.icon}`} />
+      </div>
+      <h3 className="pr-16 font-head text-sm font-semibold leading-snug">{a.title}</h3>
+      <p className="mt-1 text-xs font-medium text-accent2">{a.org}</p>
+      <p className="text-[11px] text-muted">{a.year}</p>
+      <p className="mt-2 text-xs leading-relaxed text-muted">{a.desc}</p>
+    </motion.div>
+  )
+}
+
 export function AwardsWall() {
   const [filter, setFilter] = useState('all')
   const visible = ACHIEVEMENTS.filter((a) => filter === 'all' || a.category === filter)
@@ -167,32 +196,12 @@ export function AwardsWall() {
           ))}
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto pb-8 [scrollbar-width:thin]">
-          <motion.div layout className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {visible.map((a) => (
-              <motion.div
-                key={a.title + a.year + (a.rank ?? '')}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.35 }}
-                className="glass glow-border relative flex flex-col rounded-2xl p-5"
-              >
-                {a.rank && (
-                  <span className={`absolute right-4 top-4 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${rankTone[a.tone]}`}>
-                    {a.rank}
-                  </span>
-                )}
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent/12 text-accent">
-                  <i className={`fas ${a.icon}`} />
-                </div>
-                <h3 className="pr-16 font-head text-sm font-semibold leading-snug">{a.title}</h3>
-                <p className="mt-1 text-xs font-medium text-accent2">{a.org}</p>
-                <p className="text-[11px] text-muted">{a.year}</p>
-                <p className="mt-2 text-xs leading-relaxed text-muted">{a.desc}</p>
-              </motion.div>
+        <div className="min-h-0 flex-1 overflow-y-auto pb-8 scrollbar-thin">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {visible.map((a, i) => (
+              <AwardCard key={a.title + a.year + (a.rank ?? '')} a={a} index={i} />
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

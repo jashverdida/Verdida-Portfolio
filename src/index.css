@@ -45,16 +45,22 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent2: var(--accent-2);
   --color-accent3: var(--accent-3);
-  --font-sans: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-head: 'Space Grotesk', 'Inter', sans-serif;
+  --font-sans: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-head: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html, body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   font-family: var(--font-sans);
+  font-weight: 500;
   transition: background-color 0.3s ease, color 0.3s ease;
   overscroll-behavior: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-head);
+  font-weight: 800;
 }
 
 /* =========================================
@@ -118,6 +124,40 @@ html, body {
   border-color: color-mix(in srgb, var(--accent) 45%, transparent);
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent),
               0 12px 48px -12px var(--glow);
+}
+
+.hover-scale-101:hover {
+  transform: scale(1.01);
+}
+
+.md-grid-cols-custom {
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.milestone-aspect {
+  aspect-ratio: 4 / 3;
+}
+
+.overlay-gradient-top {
+  background: linear-gradient(180deg, rgba(0,0,0,0.3), transparent);
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--accent) 70%, transparent);
 }
 
 .gradient-text {

@@ -57,6 +57,26 @@ export const TIMELINE = [
     ],
   },
   {
+    icon: 'fa-vial', type: 'work', typeLabel: 'Project Experience',
+    title: 'QA Tester & Systems Validator', org: 'Competitive & Academic Projects', orgIcon: 'fa-folder-open',
+    period: 'Aug 2023 – Dec 2025',
+    points: [
+      'Coordinated rapid Agile sprint cycles alongside a primary development partner, authoring and executing manual test cases for iterative web and mobile applications.',
+      'Managed end-to-end defect tracking and triaged critical UI/UX bugs, utilizing SQL queries to validate backend relational database integrity across multiple independent platforms.',
+      'Standardized QA pipelines and high-velocity regression testing frameworks that laid the technical foundation for zero-defect deployments, directly culminating in championship-winning AI applications at LAMBO 2026 and the PSITE Innovation Challenge.',
+    ],
+  },
+  {
+    icon: 'fa-code', type: 'work', typeLabel: 'Project Experience',
+    title: 'Full-Stack Developer & AI Integrator', org: 'Competitive & Academic Projects', orgIcon: 'fa-folder-open',
+    period: 'Aug 2023 – Dec 2025',
+    points: [
+      'Engineered end-to-end web and mobile applications within a strict two-person development team, utilizing React Native, Angular, and C# MVC to deliver fault-tolerant platforms.',
+      'Integrated and deployed advanced AI models, including Gemma 4 and GPT-4o-mini, directly into application pipelines for automated video captioning, financial data extraction, and NLP-based chat escalation.',
+      'Built and documented robust REST APIs and zero-temperature LLM workflows, ensuring seamless data synchronization between frontend user interfaces and backend relational databases.',
+    ],
+  },
+  {
     icon: 'fa-graduation-cap', type: 'edu', typeLabel: 'Education',
     title: 'BS Information Technology', org: 'University of Cebu – Banilad', orgIcon: 'fa-university',
     period: 'Aug 2022 – 2026',
